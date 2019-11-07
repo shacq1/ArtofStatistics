@@ -15,9 +15,15 @@ library(magrittr)
 library(ggplot2)
 library(ggpubr)
 library(ggExtra)
+library(tidyverse)
 
 # read data to dataframe
-df<-read.csv("00-1-shipman-confirmed-victims-x.csv",header=TRUE) 
+df <- read_csv(
+  here::here(
+  "00-1-age-and-year-of-deathofharold-shipmans-victims",
+  "00-1-shipman-confirmed-victims-x.csv")) 
+
+df
 
 # scatter-plot
 s <- ggplot(df, aes(x=fractionalDeathYear, y=Age, colour=reorder(gender2,gender))) # initialise plot for the scatter-chart
